@@ -21,3 +21,15 @@ void print_stack_data(stack *top)
         temp = temp->next;
     }
 }
+
+void free_stack(stack *top)
+{
+	stack *tmp;
+
+	while (top != NULL)
+	{
+    	tmp = top;
+    	top = top->next;
+    	free(tmp);
+	}
+}
