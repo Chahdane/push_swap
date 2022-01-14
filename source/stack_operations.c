@@ -48,8 +48,10 @@ void	swap(stack *top, char ab)
 	top->next->data = temp;
 }
 
-// used tp shift up all elements of stack a by 1.
-void rotate(stack **top, char ab)
+/* used tp shift up all elements of stack a by 1.
+	The first element becomes the last one */
+
+void	rotate(stack **top, char ab)
 {
 	if (!top || !(*top)->next)
 		return ;
@@ -66,6 +68,22 @@ void rotate(stack **top, char ab)
 	(*top)->next= NULL;
 	(*top) = curr;
 }
+/* used tp shift down all elements of stack a by 1.
+	The last element becomes the first one */
+	
+void	reverse_rotate(stack **top, char ab)
+{
+	stack *before_last;
+	stack *last;
+
+	before_last = *top;
+	while(before_last->next->next != NULL)
+		before_last = before_last->next;
+	last = before_last->next;
+	last->next = *top;
+	before_last->next = NULL;
+	*top = last;
+}	
 void rr(stack **a, stack **b)
 {
 	printf("rr");

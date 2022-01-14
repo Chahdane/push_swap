@@ -19,6 +19,7 @@ void	free_stack(stack *top);
 
 void	swap(stack *top, char ab);
 void	rotate(stack **top, char ab);
+void	reverse_rotate(stack **top, char ab);
 
 
 void sort_3_elements(stack **top);
