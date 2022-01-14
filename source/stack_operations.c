@@ -9,7 +9,7 @@ void	push(stack **top, int data)
     new->next = *top;
     *top = new; 
 }
-
+// pa pb
 void push_element(stack **from, stack **to, char ab)
 {
 	stack *temp;

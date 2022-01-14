@@ -47,12 +47,12 @@ int	main(int ac, char **av)
         return 0;
     fill_stack(ac, av, &top);
 	
-	printf("Before :\n");
-	print_stack_data(top);
+	//printf("Before :\n");
+	//print_stack_data(top);
 
 	operations(ac -1, &top);
 
-	printf("After :\n");
+	//printf("After :\n");
 	print_stack_data(top);
 
 	free_stack(top);

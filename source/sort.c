@@ -48,13 +48,43 @@ void sort_3_elements(stack **top)
 		sort_3_elements(top);
 	}
 }
+//TODO : optimise it
 void sort_5_elements(stack **top)
 {
 	stack *b;
+	int i;
+
+	i = 0;
 	b = NULL;
 	push_element(top, &b, 'b');
 	push_element(top, &b, 'b');
 	sort_3_elements(top);
-	if ((*top)->data > b->data)
-		push_element(&b, top, 'a');
+	while (i < 2)
+	{
+		if (b->data <= (*top)->data)						//insert at first pos
+			push_element(&b, top, 'a');
+		else if (b->data > (*top)->data)					
+		{
+			if (b->data <= (*top)->next->data)				// 2nd pos
+			{
+				rotate(top, 'a');
+				push_element(&b,top,'a');
+				reverse_rotate(top, 'a');
+			}
+			else if (b->data < (*top)->next->next->data)	// 3rd pos
+			{
+				rotate(top, 'a');
+				rotate(top, 'a');
+				push_element(&b,top,'a');
+				reverse_rotate(top, 'a');
+				reverse_rotate(top, 'a');
+			}
+			else 											//last pos
+			{
+				push_element(&b,top,'a');
+				rotate(top, 'a');
+			}
+		}
+		i++;
+	}
 }
