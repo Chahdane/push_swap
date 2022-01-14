@@ -49,21 +49,29 @@ void	swap(stack *top, char ab)
 }
 
 // used tp shift up all elements of stack a by 1.
-void rotate(stack *top, char ab)
+void rotate(stack **top, char ab)
 {
-	printf("r%c",ab);
+	if (!top || !(*top)->next)
+		return ;
+	if (ab == 'a' || ab == 'b')
+		printf("r%c\n",ab);
 	stack *curr;
 	stack *last;
 
-	curr = top->next;
-	last = top;
-	while (last != NULL)
+	curr = (*top)->next;
+	last = (*top);
+	while (last->next != NULL)
 		last = last->next;
-	curr->next = NULL;
-	last->next = top;
-	top = curr->next;
+	last->next = *top;
+	(*top)->next= NULL;
+	(*top) = curr;
 }
-
+void rr(stack **a, stack **b)
+{
+	printf("rr");
+	rotate(a,'0');
+	rotate(b,'0');
+}
 void ss(stack *a, stack *b)
 {
 	printf("ss");
