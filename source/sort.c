@@ -16,9 +16,8 @@ int	is_sorted(stack *top)
 	return (1);
 }
 
-stack	*sort_3_elements(stack *top)
+void sort_3_elements(stack *top)
 {
-	stack *stack_b;
-
-	stack_b = NULL;
+	if (top->data > top->next->data)
+		swap(top, 'a');
 }

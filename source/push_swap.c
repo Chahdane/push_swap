@@ -29,6 +29,11 @@ void	fill_stack(int ac, char **av, stack **top)
         push(top, ft_atol(av[ac]));
 }
 
+void operations(int ac, stack *top)
+{
+	if (ac == 3)
+		sort_3_elements(top);
+}
 int	main(int ac, char **av)
 {
     stack *top;
@@ -38,6 +43,8 @@ int	main(int ac, char **av)
         return 0;
     fill_stack(ac, av, &top);
     print_stack_data(top);
+	operations(ac -1, top);
+	print_stack_data(top);
 	free_stack(top);
     return 0;
 }
