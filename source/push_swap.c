@@ -31,8 +31,12 @@ void	fill_stack(int ac, char **av, stack **top)
 
 void operations(int ac, stack **top)
 {
-	if (ac == 3)
+	if (ac == 2)
+		sort_2_elements(top,'a');
+	else if (ac == 3)
 		sort_3_elements(top);
+	else if(ac == 5)
+		sort_5_elements(top);
 }
 int	main(int ac, char **av)
 {
@@ -42,9 +46,15 @@ int	main(int ac, char **av)
     if(!is_args_valid(ac,av))
         return 0;
     fill_stack(ac, av, &top);
-    print_stack_data(top);
-	operations(ac -1, &top);
+	
+	printf("Before :\n");
 	print_stack_data(top);
+
+	operations(ac -1, &top);
+
+	printf("After :\n");
+	print_stack_data(top);
+
 	free_stack(top);
     return 0;
 }

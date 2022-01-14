@@ -16,6 +16,11 @@ int	is_sorted(stack *top)
 	return (1);
 }
 
+void sort_2_elements(stack **top, char ab)
+{
+	if ((*top)->data > (*top)->next->data)
+		swap((*top), ab);
+}
 //this functions sorts a 3 num stack in a max of 2 moves :)
 
 void sort_3_elements(stack **top)
@@ -42,4 +47,14 @@ void sort_3_elements(stack **top)
 		reverse_rotate(top, 'a');
 		sort_3_elements(top);
 	}
+}
+void sort_5_elements(stack **top)
+{
+	stack *b;
+	b = NULL;
+	push_element(top, &b, 'b');
+	push_element(top, &b, 'b');
+	sort_3_elements(top);
+	if ((*top)->data > b->data)
+		push_element(&b, top, 'a');
 }

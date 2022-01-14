@@ -9,6 +9,17 @@ void	push(stack **top, int data)
     new->next = *top;
     *top = new; 
 }
+
+void push_element(stack **from, stack **to, char ab)
+{
+	stack *temp;
+	if (ab == 'a' || ab == 'b')
+		printf("p%c\n",ab); 
+	temp = *from;
+	*from = (*from)->next;
+	temp->next = *to;
+	*to = temp;
+}
 //TODO : DELETE LATER
 void print_stack_data(stack *top)
 {
