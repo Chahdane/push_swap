@@ -8,7 +8,7 @@ void	sort_5_elements(stack **top)
 	i = -1;
 	b = NULL;
 	push2_sort3(top, &b);
-	while (i++ < 2)
+	while (i++ < 1)
 	{
 		if (b->data <= (*top)->data)
 			push_element(&b, top, 'a');
@@ -66,7 +66,7 @@ void	push_to_last_pos(stack **top, stack **b)
 	rotate(top, 'a');
 }
 
-/* ONLY when i = 1 && there is 4 elements in stack A and 1 in B,
+/* ONLY when i = 2 && there is 4 elements in stack A and 1 in B,
 	(1 -> a -> 2 -> b -> 3 c -> (4) -> d -> last) */
 
 void	push_to_pos4(stack **top, stack **b)
