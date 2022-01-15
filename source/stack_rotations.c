@@ -8,7 +8,7 @@ void	rotate(stack **top, char ab)
 	if (!top || !(*top)->next)
 		return ;
 	if (ab == 'a' || ab == 'b')
-		printf("r%c\n",ab);
+		ft_putstr("r", ab);
 	stack	*curr;
 	stack	*last;
 
@@ -31,7 +31,7 @@ void	reverse_rotate(stack **top, char ab)
 	if (!top || !(*top)->next)
 		return ;
 	if (ab == 'a' || ab == 'b')
-		printf("rr%c\n",ab);
+		ft_putstr("rr", ab);
 	before_last = *top;
 	while(before_last->next->next != NULL)
 		before_last = before_last->next;
@@ -47,13 +47,13 @@ void rr(stack **a, stack **b, char is_reverse)
 {
 	if (is_reverse == 'n')
 	{
-		printf("rr");
+		ft_putstr("rr", '0');
 		rotate(a,'0');
 		rotate(b,'0');
 	}
 	else if (is_reverse == 'y')
 	{
-		printf("rr");
+		ft_putstr("rrr", '0');
 		reverse_rotate(a,'0');
 		reverse_rotate(b,'0');
 	}

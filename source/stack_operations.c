@@ -18,7 +18,7 @@ void	push_element(stack **from, stack **to, char ab)
 {
 	stack *temp;
 	if (ab == 'a' || ab == 'b')
-		printf("p%c\n",ab); 
+		ft_putstr("p", ab);
 	temp = *from;
 	*from = (*from)->next;
 	temp->next = *to;
@@ -36,7 +36,7 @@ void	swap(stack *top, char ab)
 	if (!top || !top->next)
 		return ;
 	if (ab == 'a' || ab == 'b')
-		printf("s%c\n",ab);
+		ft_putstr("s", ab);
 	temp = top->data;
 	(top)->data = top->next->data;
 	top->next->data = temp;
@@ -44,7 +44,7 @@ void	swap(stack *top, char ab)
 
 void ss(stack *a, stack *b)
 {
-	printf("ss");
+	ft_putstr("ss", '0');
 	swap(a,'0');
 	swap(b,'0');
 }

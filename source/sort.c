@@ -37,7 +37,7 @@ void sort_3_elements(stack **top)
 		swap((*top), 'a');
 		sort_3_elements(top);
 	}
-	else if (a > b && a > c)
+	else if (a > b)
 	{
 		rotate(top, 'a');
 		sort_3_elements(top);
@@ -47,4 +47,6 @@ void sort_3_elements(stack **top)
 		reverse_rotate(top, 'a');
 		sort_3_elements(top);
 	}
+	else if (a == b && b > c)
+		reverse_rotate(top, 'a');
 }

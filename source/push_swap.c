@@ -44,7 +44,10 @@ int	main(int ac, char **av)
 
     top = NULL;
     if(!is_args_valid(ac,av))
-        return 0;
+	{
+        write(1, "Error\n", 6);
+		return 0;
+	}
     fill_stack(ac, av, &top);
 	
 	//printf("Before :\n");
@@ -53,7 +56,7 @@ int	main(int ac, char **av)
 	operations(ac -1, &top);
 
 	//printf("After :\n");
-	print_stack_data(top);
+	//print_stack_data(top);
 
 	free_stack(top);
     return 0;
