@@ -10,7 +10,7 @@ void	push(stack **top, int data)
     *top = new; 
 }
 // pa pb
-void push_element(stack **from, stack **to, char ab)
+void	push_element(stack **from, stack **to, char ab)
 {
 	stack *temp;
 	if (ab == 'a' || ab == 'b')
@@ -21,7 +21,7 @@ void push_element(stack **from, stack **to, char ab)
 	*to = temp;
 }
 //TODO : DELETE LATER
-void print_stack_data(stack *top)
+void	print_stack_data(stack *top)
 {
     stack *temp;
 
@@ -34,9 +34,9 @@ void print_stack_data(stack *top)
 	printf("\n");
 }
 
-void free_stack(stack *top)
+void	free_stack(stack *top)
 {
-	stack *tmp;
+	stack	*tmp;
 
 	while (top != NULL)
 	{
@@ -48,7 +48,7 @@ void free_stack(stack *top)
 // used to swap the first 2 elements in the stack (sa sb).
 void	swap(stack *top, char ab)
 {
-	int temp;
+	int	temp;
 
 	if (!top || !top->next)
 		return ;
@@ -68,8 +68,8 @@ void	rotate(stack **top, char ab)
 		return ;
 	if (ab == 'a' || ab == 'b')
 		printf("r%c\n",ab);
-	stack *curr;
-	stack *last;
+	stack	*curr;
+	stack	*last;
 
 	curr = (*top)->next;
 	last = (*top);
@@ -84,8 +84,8 @@ void	rotate(stack **top, char ab)
 
 void	reverse_rotate(stack **top, char ab)
 {
-	stack *before_last;
-	stack *last;
+	stack	*before_last;
+	stack	*last;
 
 	if (!top || !(*top)->next)
 		return ;

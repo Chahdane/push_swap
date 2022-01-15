@@ -27,4 +27,11 @@ void	sort_2_elements(stack **top, char ab);
 void	sort_3_elements(stack **top);
 void	sort_5_elements(stack **top);
 
+
+void	push2_sort3(stack **top, stack **b);
+void	push_to_pos2(stack **top, stack **b);
+void	push_to_pos3(stack **top, stack **b);
+void	push_to_pos4(stack **top, stack **b);
+
+
 #endif
