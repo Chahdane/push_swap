@@ -1,4 +1,4 @@
-#!bin/bash
+#!/bin/bash
 make
 read a b c d e
 ./push_swap $a $b $c $d $e
