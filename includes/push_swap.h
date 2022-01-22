@@ -31,7 +31,8 @@ void	sort_3_elements(stack **top);
 void	sort_5_elements(stack **top);
 void quick_sort(stack **top, int pv);
 int get_pivot(stack *top);
-
+void quick_sort2(stack **top);
+void sort(stack **top, stack **b);
 
 void	push2_sort3(stack **top, stack **b);
 void	push_to_pos2(stack **top, stack **b);

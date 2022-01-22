@@ -12,7 +12,7 @@ int	is_sorted(stack *top)
 		else
 			return (0);
 	}
-	printf("sorted\n");
+	//printf("sorted\n");
 	return (1);
 }
 

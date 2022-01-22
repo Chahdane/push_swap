@@ -38,12 +38,13 @@ void operations(int ac, stack **top)
 	else if(ac == 5)
 		sort_5_elements(top);
 	else if (ac == 10)
-		quick_sort(top, get_pivot(*top));
+		quick_sort2(top);
 }
 int	main(int ac, char **av)
 {
     stack *top;
-
+	stack *b;
+	b = NULL;
     top = NULL;
     if(!is_args_valid(ac,av))
 	{
@@ -52,13 +53,15 @@ int	main(int ac, char **av)
 	}
     fill_stack(ac, av, &top);
 	
-	printf("Before :\n");
+	//printf("Before :\n");
 	//print_stack_data(top);
 
 	operations(ac -1, &top);
 
-	printf("After :\n");
+	//printf("After :\n");
 	print_stack_data(top);
+	//printf("B : \n");
+	//print_stack_data(b);
 
 	free_stack(top);
     return 0;
