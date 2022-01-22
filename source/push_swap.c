@@ -38,7 +38,7 @@ void operations(int ac, stack **top)
 	else if(ac == 5)
 		sort_5_elements(top);
 	else if (ac == 10)
-		quick_sort(top);
+		quick_sort(top, get_pivot(*top));
 }
 int	main(int ac, char **av)
 {

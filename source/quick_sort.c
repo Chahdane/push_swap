@@ -1,17 +1,19 @@
 #include "../includes/push_swap.h"
 
 void push_b_to_a(stack **a, stack **b);
+int get_last_elem(stack *top);
 
-void quick_sort(stack **top)
+int get_pivot(stack *top)
+{	
+	return top->data;
+}
+void quick_sort(stack **top, int pivot)
 {
-	int pivot;
-	int count;
+	int count = 0;
 	stack *b;
-
-	count = 0;
 	b = NULL;
-	pivot = (*top)->data;
-	while (count < 10)
+
+	while (count < 10 && !is_sorted(*top))
 	{
 		if ((*top)->data < pivot)
 		{
@@ -24,12 +26,13 @@ void quick_sort(stack **top)
 		count++;
 	}
 	push_b_to_a(top, &b);
-}
-void quick_sort2(stack **top)
-{
-	while (!is_sorted(*top))
+	if (is_sorted(*top))
+		return ;
+	else 
 	{
-		quick_sort(top);
+		pivot = get_pivot(*top);
+		printf("pv = %d\n", pivot);
+		quick_sort(top, pivot);
 	}
 }
 
