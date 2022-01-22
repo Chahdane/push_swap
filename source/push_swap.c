@@ -37,6 +37,8 @@ void operations(int ac, stack **top)
 		sort_3_elements(top);
 	else if(ac == 5)
 		sort_5_elements(top);
+	else if (ac == 10)
+		quick_sort(top);
 }
 int	main(int ac, char **av)
 {
@@ -45,18 +47,18 @@ int	main(int ac, char **av)
     top = NULL;
     if(!is_args_valid(ac,av))
 	{
-        write(1, "Error\n", 6);
+        write(2, "Error\n", 6);
 		return 0;
 	}
     fill_stack(ac, av, &top);
 	
-	//printf("Before :\n");
+	printf("Before :\n");
 	//print_stack_data(top);
 
 	operations(ac -1, &top);
 
-	//printf("After :\n");
-	//print_stack_data(top);
+	printf("After :\n");
+	print_stack_data(top);
 
 	free_stack(top);
     return 0;

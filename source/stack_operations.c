@@ -25,6 +25,7 @@ void	push_element(stack **from, stack **to, char ab)
 	*to = temp;
 }
 
+
 // == SWAP OPERATIONS ==
 
 /* used to swap the first 2 elements in the stack (sa sb). */
@@ -57,7 +58,7 @@ void	print_stack_data(stack *top)
     temp = top;
     while (temp != NULL)
     {
-        printf("%d",temp->data);
+        printf("%d ",temp->data);
         temp = temp->next;
     }
 	printf("\n");
