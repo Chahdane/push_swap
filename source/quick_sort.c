@@ -1,49 +1,44 @@
 #include "../includes/push_swap.h"
 
 void push_b_to_a(stack **a, stack **b);
-int is_a_sorted = 0;
-void quick_sort(stack **top, int pivot)
-{
-	int count = 0;
-	stack *b;
-	b = NULL;
-	if (is_sorted(*top))
-		return ;
-	//printf ("\n\n\npiv %d\n\n\n\n", pivot);
-	while (count < 10 && !is_sorted(*top))
-	{
-		if ((*top)->data < pivot)
-			push_element(top,&b, 'b');
-		else
-			rotate(top, 'a');
-		count++;
-	}
-	if (is_sorted(*top))
-	{
-		is_a_sorted = 1;
-	}
-	push_b_to_a(top, &b);
-	//print_stack_data(*top);
-	if (is_sorted(*top) == 1)
-		return ;
-}
 
-void quick_sort2(stack **top)
+
+int get_biggest_num(stack *top)
 {
-	int pv;
+	int res;
 	stack *temp;
 
-	temp = *top;
+	temp = top;
 
-	while (!is_sorted(*top) && temp->next != NULL)
+	while (temp != NULL)
 	{
-		pv = temp->data;
+		if (res < temp->data)
+			res = temp->data;
 		temp = temp->next;
-		//printf ("pv : %d\n", pv);
-		quick_sort(top, pv);
 	}
-	if (is_sorted(*top))
-		return ;
+	//exit(0);
+	return res;
+}
+
+void sort(stack **top)
+{
+	stack *b;
+	int nb;
+
+	b = NULL;
+	nb = get_biggest_num(*top);
+	int i = 0;
+	while ((*top)->data != nb && i < 50)
+	{
+		rotate(top, 'a');
+		i++;
+	}
+	write(1, "hfgd\n", 1);
+	print_stack_data(*top);
+	push_element(top, &b, 'b');
+
+	print_stack_data(*top);
+	print_stack_data(b);
 }
 
 int stack_len(stack *top)

@@ -18,13 +18,12 @@ void	push_element(stack **from, stack **to, char ab)
 {
 	stack *temp;
 	if (ab == 'a' || ab == 'b')
-		ft_putstr("p", ab);
+		ft_putstr_fd("p", ab);
 	temp = *from;
 	*from = (*from)->next;
 	temp->next = *to;
 	*to = temp;
 }
-
 
 // == SWAP OPERATIONS ==
 
@@ -37,7 +36,7 @@ void	swap(stack *top, char ab)
 	if (!top || !top->next)
 		return ;
 	if (ab == 'a' || ab == 'b')
-		ft_putstr("s", ab);
+		ft_putstr_fd("s", ab);
 	temp = top->data;
 	(top)->data = top->next->data;
 	top->next->data = temp;
@@ -45,7 +44,7 @@ void	swap(stack *top, char ab)
 
 void ss(stack *a, stack *b)
 {
-	ft_putstr("ss", '0');
+	ft_putstr_fd("ss", '0');
 	swap(a,'0');
 	swap(b,'0');
 }
@@ -58,10 +57,10 @@ void	print_stack_data(stack *top)
     temp = top;
     while (temp != NULL)
     {
-        printf("%d ",temp->data);
+        ft_printf("%d ",temp->data);
         temp = temp->next;
     }
-	printf("\n");
+	ft_printf("\n");
 }
 
 void	free_stack(stack *top)

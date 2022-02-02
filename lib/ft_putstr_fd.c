@@ -10,7 +10,7 @@ int ft_strlen(char *str)
 	return (len);
 }
 
-void	ft_putstr(char *str, char c)
+void	ft_putstr_fd(char *str, char c)
 {
 	write (1, str, ft_strlen(str));
 	if (c != '0')

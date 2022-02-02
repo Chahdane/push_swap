@@ -37,12 +37,13 @@ void operations(int ac, stack **top)
 		sort_3_elements(top);
 	else if(ac == 5)
 		sort_5_elements(top);
-	else if (ac == 10)
-		quick_sort2(top);
+	else if (ac > 5)
+		sort(top);
 }
 int	main(int ac, char **av)
 {
     stack *top;
+	
 	stack *b;
 	b = NULL;
     top = NULL;
@@ -52,17 +53,17 @@ int	main(int ac, char **av)
 		return 0;
 	}
     fill_stack(ac, av, &top);
+
 	
-	//printf("Before :\n");
+	//ƒrintf("Before :\n");
 	//print_stack_data(top);
 
 	operations(ac -1, &top);
 
 	//printf("After :\n");
-	print_stack_data(top);
+	//print_stack_data(top);
 	//printf("B : \n");
-	//print_stack_data(b);
-
+	print_stack_data(top);
 	free_stack(top);
     return 0;
 }
