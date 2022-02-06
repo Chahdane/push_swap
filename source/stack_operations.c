@@ -58,6 +58,7 @@ void	print_stack_data(stack *top)
     while (temp != NULL)
     {
         ft_printf("%d ",temp->data);
+		//ft_printf("[%d]\n", temp->index);
         temp = temp->next;
     }
 	ft_printf("\n");

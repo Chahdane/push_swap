@@ -28,8 +28,42 @@ void	fill_stack(int ac, char **av, stack **top)
     while (ac-- > 1)
         push(top, ft_atol(av[ac]));
 }
+void	fill_array(int ac, stack *top, int *arr)
+{
+	int min = -1000;
+	int i = 0;
+	while (i < ac - 1)
+	{
+		arr[i] = get_lowest_num2(top, min);
+		min = arr[i];
+		i++;
+	}
+}
 
-void operations(int ac, stack **top)
+
+void fill_index(stack **top, int *arr, int ac)
+{
+	stack *temp;
+	int i = 0;
+
+	temp = *top;
+	while (temp)
+	{
+		while (i < ac-1)
+		{
+			if (temp->data == arr[i])
+			{
+				temp->index = i;
+
+			}
+			i++;
+		}
+		i = 0;
+		temp = temp->next;
+	}
+}
+
+void operations(int ac, stack **top, stack **b)
 {
 	if (ac == 2)
 		sort_2_elements(top,'a');
@@ -38,32 +72,32 @@ void operations(int ac, stack **top)
 	else if(ac == 5)
 		sort_5_elements(top);
 	else if (ac > 5)
-		sort(top);
+		sort2(top,b);
 }
 int	main(int ac, char **av)
 {
     stack *top;
-	
+
 	stack *b;
 	b = NULL;
     top = NULL;
+	int *arr = malloc(sizeof(int)*(ac - 1));
+	
     if(!is_args_valid(ac,av))
 	{
         write(2, "Error\n", 6);
 		return 0;
 	}
     fill_stack(ac, av, &top);
-
 	
-	//ƒrintf("Before :\n");
-	//print_stack_data(top);
-
-	operations(ac -1, &top);
-
-	//printf("After :\n");
-	//print_stack_data(top);
-	//printf("B : \n");
+	fill_array(ac,top, arr);
+	fill_index(&top, arr, ac);
+	operations(ac -1,&top, &b);
+	// ft_printf("a : ");
 	print_stack_data(top);
+	// ft_printf("b : ");
+	// print_stack_data(b);
 	free_stack(top);
-    return 0;
+    free(arr);
+	return 0;
 }
