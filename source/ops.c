@@ -29,7 +29,6 @@ int get_lowest_num2(stack *top, int min)
 		if (res > temp->data && temp->data > min)
 		{
 			res = temp->data;
-		//	temp = top;
 		}
 		temp = temp->next;
 	}

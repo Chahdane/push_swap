@@ -14,7 +14,8 @@ typedef struct stack
 }   stack;
 
 int	ft_itoa(int n);
-
+void	fill_stack(int ac, char **av, stack **top);
+char    *get_next_line(int fd);
 int	ft_putstr(char *str);
 long	ft_atol(char *str);
 void	print_stack_data(stack *top);
@@ -33,7 +34,7 @@ void	push_element(stack **from, stack **to, char ab);
 void	sort_2_elements(stack **top, char ab);
 void	sort_3_elements(stack **top);
 void	sort_5_elements(stack **top);
-void sort(stack **top, stack **b, int pv);
+void sort(stack **top, stack **b, int len, int div);
 void sort2(stack **top, stack **b);
 
 void push_5_to_a(stack **a, stack **b);

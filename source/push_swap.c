@@ -30,7 +30,7 @@ void	fill_stack(int ac, char **av, stack **top)
 }
 void	fill_array(int ac, stack *top, int *arr)
 {
-	int min = -1000;
+	int min = -2147483648;
 	int i = 0;
 	while (i < ac - 1)
 	{
@@ -79,6 +79,7 @@ int	main(int ac, char **av)
     stack *top;
 
 	stack *b;
+	//ft_printf("ac => %d",ac -1);
 	b = NULL;
     top = NULL;
 	int *arr = malloc(sizeof(int)*(ac - 1));
