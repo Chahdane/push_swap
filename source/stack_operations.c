@@ -1,3 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack_operations.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: achahdan <achahdan@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/10 23:22:46 by achahdan          #+#    #+#             */
+/*   Updated: 2022/02/10 23:22:47 by achahdan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+
 #include "../includes/push_swap.h"
 
 // == PUSH OPERATIONS ==
@@ -57,7 +70,7 @@ void	print_stack_data(stack *top)
     temp = top;
     while (temp != NULL)
     {
-        //ft_printf("\ndata -> %d , ",temp->data);
+        ft_printf("%d ",temp->data);
 		//ft_printf("%d ", temp->index);
         temp = temp->next;
     }

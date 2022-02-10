@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atol.c                                          :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achahdan <achahdan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/10 23:21:45 by achahdan          #+#    #+#             */
-/*   Updated: 2022/02/10 23:21:48 by achahdan         ###   ########.fr       */
+/*   Created: 2022/02/10 23:22:09 by achahdan          #+#    #+#             */
+/*   Updated: 2022/02/10 23:22:11 by achahdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-long	ft_atol(char *str)
-{
-	int		i;
-	long	res;
-	int		sign;
 
-	i = 0;
-	res = 0;
-	sign = 1;
-	if (str[i] == '-')
+#include "../includes/push_swap.h"
+
+int	main(int ac, char **av)
+{
+    stack *top;
+	stack *b;
+    int *arr;
+
+	b = NULL;
+    top = NULL;
+    arr = malloc(sizeof(int)*(ac - 1));
+    if(!is_args_valid(ac,av))
 	{
-		sign = -1;
-		i++;
+        write(2, "Error\n", 6);
+		return 0;
 	}
-	while (str[i] && str[i] >= '0' && str[i] <= '9')
-	{
-		res = res * 10 + (str[i] - 48);
-		i++;
-	}
-	return (res * sign);
+    fill_stack(ac, av, &top);
+	fill_array(ac,top, arr);
+	fill_index(&top, arr, ac);
+	operations(ac -1,&top, &b);
+	free_stack(top);
+    free(arr);
+	return 0;
 }

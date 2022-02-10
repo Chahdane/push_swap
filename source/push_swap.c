@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: achahdan <achahdan@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/10 23:22:17 by achahdan          #+#    #+#             */
+/*   Updated: 2022/02/10 23:22:20 by achahdan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
 // checks if the passed arguments are valid numbers
@@ -72,33 +84,5 @@ void operations(int ac, stack **top, stack **b)
 	else if(ac == 5)
 		sort_5_elements(top);
 	else if (ac > 5)
-		sort2(top,b);
-}
-int	main(int ac, char **av)
-{
-    stack *top;
-
-	stack *b;
-	//ft_printf("ac => %d",ac -1);
-	b = NULL;
-    top = NULL;
-	int *arr = malloc(sizeof(int)*(ac - 1));
-	
-    if(!is_args_valid(ac,av))
-	{
-        write(2, "Error\n", 6);
-		return 0;
-	}
-    fill_stack(ac, av, &top);
-	
-	fill_array(ac,top, arr);
-	fill_index(&top, arr, ac);
-	operations(ac -1,&top, &b);
-	// ft_printf("a : ");
-	print_stack_data(top);
-	// ft_printf("b : ");
-	// print_stack_data(b);
-	free_stack(top);
-    free(arr);
-	return 0;
+		sort2(top,b,ac);
 }
