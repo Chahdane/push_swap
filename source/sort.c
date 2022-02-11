@@ -40,24 +40,19 @@ int get_distance(int nb, stack *top)
 
 void sort(stack **top, stack **b, int len, int div)
 {
-	int index = len/div;
-	int nb = 0;
-	int i = 0;
-	while (i < stack_len(*top))
+	int	index;
+	int	i;
+	int	nb;
+
+	index = len/div;
+	i = 0;
+	nb = 0;
+	while (stack_len(*top))
 	{
 		nb = find_nb_in_range(index, *top);
-		if (get_nb_pos(nb, *top) < stack_len(*top)/2)
-		{
-			rotate_to_pos(top, get_distance(nb, *top),'a');
-			push_element(top, b, 'b');
-			i++;
-		}
-		else
-		{
-			rev_rotate_to_pos(top, get_distance(nb, *top), 'a');
-			push_element(top, b, 'b');
-			i++;
-		}
+		rotate_to_pos(top, get_distance(nb, *top),'a');
+		push_element(top, b, 'b');
+		i++;
 		if (i == len/div)
 		{
 			i = 0;

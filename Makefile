@@ -1,6 +1,18 @@
-all :
-	@gcc -Wall -Wextra -Werror source/*.c lib/*.c -o push_swap
-	@echo "done.."
-	ls
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
+CKECKER_OBJ= checker/*.c lib/*.c source/*.c
+OBJ= source/*.c lib/*.c main/main.c
+
+all : push_swap my_checker
+
+push_swap :
+			$(CC) $(CFLAGS) $(OBJ) -o push_swap
+my_checker : 
+			$(CC) $(CFLAGS) $(CKECKER_OBJ) -o my_checker
 clean :
-	@rm push_swap
+	rm push_swap
+	rm my_checker
+
+fclean : clean
+
+re : clean all
