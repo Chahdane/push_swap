@@ -25,6 +25,7 @@ int	main(int ac, char **av)
     if(!is_args_valid(ac,av))
 	{
         write(2, "Error\n", 6);
+		free(arr);
 		return 0;
 	}
     fill_stack(ac, av, &top);

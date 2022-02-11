@@ -45,8 +45,6 @@ char    *get_next_line(int fd)
 	char	c;
 	int		count;
 
-	// if (BUFFER_SIZE < 1)
-	// 	return (NULL);
 	line = NULL;
 	count = read(fd, &c, 1);
 	while (count)
