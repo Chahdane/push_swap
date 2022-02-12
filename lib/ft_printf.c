@@ -6,10 +6,9 @@
 /*   By: achahdan <achahdan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 23:21:54 by achahdan          #+#    #+#             */
-/*   Updated: 2022/02/10 23:21:55 by achahdan         ###   ########.fr       */
+/*   Updated: 2022/02/11 23:28:53 by achahdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "../includes/push_swap.h"
 
@@ -42,7 +41,7 @@ int	check_and_print(char c, va_list args)
 	if (c == 'd' || c == 'i')
 		return (ft_itoa(va_arg(args, int)));
 	if (c == 's')
-	    return (ft_putstr(va_arg(args, char *)));
+		return (ft_putstr(va_arg(args, char *)));
 	return (0);
 }
 

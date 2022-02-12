@@ -6,17 +6,17 @@
 /*   By: achahdan <achahdan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 23:21:27 by achahdan          #+#    #+#             */
-/*   Updated: 2022/02/10 23:21:29 by achahdan         ###   ########.fr       */
+/*   Updated: 2022/02/11 23:26:57 by achahdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include <stdlib.h>
 #include <unistd.h>
-char *line_join(char *line, char c)
+
+char	*line_join(char *line, char c)
 {
 	char	*new;
-	int i;
+	int		i;
 
 	i = 0;
 	while (line && line[i])
@@ -39,7 +39,7 @@ char *line_join(char *line, char c)
 	return (new);
 }
 
-char    *get_next_line(int fd)
+char	*get_next_line(int fd)
 {
 	char	*line;
 	char	c;

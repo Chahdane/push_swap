@@ -10,7 +10,7 @@ fi
 
 ARG=$(./rand.sh $1 $2)
 
-printf "\nUNSORTED STACK: \n${ARG}\n"
+printf "\nUNSORTED t_stack: \n${ARG}\n"
 
 MOVES=$(./push_swap $ARG)
 

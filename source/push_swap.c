@@ -6,17 +6,16 @@
 /*   By: achahdan <achahdan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 23:22:17 by achahdan          #+#    #+#             */
-/*   Updated: 2022/02/10 23:22:20 by achahdan         ###   ########.fr       */
+/*   Updated: 2022/02/12 01:37:23 by achahdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-// checks if the passed arguments are valid numbers
 int	is_args_valid(int ac, char **av)
 {
 	int	i;
-	int len;
+	int	len;
 
 	while (ac-- > 1)
 	{
@@ -29,21 +28,26 @@ int	is_args_valid(int ac, char **av)
 		if (av[ac][i] == '-' || av[ac][i] == '+')
 			if (av[ac][i] == '-')
 				i++;
-    	if (av[ac][i] < '0' || av[ac][i] > '9')
-        	return (0);
+		if (av[ac][i] < '0' || av[ac][i] > '9')
+			return (0);
 	}
-    return (1);
+	return (1);
 }
-// pushing elemnts to the stack from last to first
-void	fill_stack(int ac, char **av, stack **top)
+
+// pushing elemnts to the t_stack from last to first
+void	fill_t_stack(int ac, char **av, t_stack **top)
 {
-    while (ac-- > 1)
-        push(top, ft_atol(av[ac]));
+	while (ac -- > 1)
+		push(top, ft_atol(av[ac]));
 }
-void	fill_array(int ac, stack *top, int *arr)
+
+void	fill_array(int ac, t_stack *top, int *arr)
 {
-	int min = -2147483648;
-	int i = 0;
+	int	min;
+	int	i;
+
+	min = -2147483648;
+	i = 0;
 	while (i < ac - 1)
 	{
 		arr[i] = get_lowest_num2(top, min);
@@ -52,22 +56,19 @@ void	fill_array(int ac, stack *top, int *arr)
 	}
 }
 
-
-void fill_index(stack **top, int *arr, int ac)
+void	fill_index(t_stack **top, int *arr, int ac)
 {
-	stack *temp;
-	int i = 0;
+	t_stack	*temp;
+	int		i;
 
 	temp = *top;
+	i = 0;
 	while (temp)
 	{
-		while (i < ac-1)
+		while (i < ac - 1)
 		{
 			if (temp->data == arr[i])
-			{
 				temp->index = i;
-
-			}
 			i++;
 		}
 		i = 0;
@@ -75,14 +76,14 @@ void fill_index(stack **top, int *arr, int ac)
 	}
 }
 
-void operations(int ac, stack **top, stack **b)
+void	operations(int ac, t_stack **top, t_stack **b)
 {
 	if (ac == 2)
-		sort_2_elements(top,'a');
+		sort_2_elements(top, 'a');
 	else if (ac == 3)
 		sort_3_elements(top);
-	else if(ac == 5)
+	else if (ac == 5)
 		sort_5_elements(top);
 	else if (ac > 5)
-		sort2(top,b,ac);
+		sort2(top, b, ac);
 }

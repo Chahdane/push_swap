@@ -6,16 +6,15 @@
 /*   By: achahdan <achahdan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 23:22:24 by achahdan          #+#    #+#             */
-/*   Updated: 2022/02/10 23:22:25 by achahdan         ###   ########.fr       */
+/*   Updated: 2022/02/12 01:37:23 by achahdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "../includes/push_swap.h"
 
-int	is_sorted(stack *top)
+int	is_sorted(t_stack *top)
 {
-	stack *ptr;
+	t_stack	*ptr;
 
 	ptr = top;
 	while (ptr->next != NULL)
@@ -25,22 +24,21 @@ int	is_sorted(stack *top)
 		else
 			return (0);
 	}
-	//printf("sorted\n");
 	return (1);
 }
 
-void sort_2_elements(stack **top, char ab)
+void	sort_2_elements(t_stack **top, char ab)
 {
 	if ((*top)->data > (*top)->next->data)
 		swap((*top), ab);
 }
 
-//this functions sorts a 3 num stack in a max of 2 moves :)
-void sort_3_elements(stack **top)
+//this functions sorts a 3 num t_stack in a max of 2 moves :)
+void	sort_3_elements(t_stack **top)
 {
-	int a;
-	int b;
-	int c;
+	int	a;
+	int	b;
+	int	c;
 
 	a = (*top)->data;
 	b = (*top)->next->data;

@@ -6,10 +6,9 @@
 /*   By: achahdan <achahdan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 23:21:12 by achahdan          #+#    #+#             */
-/*   Updated: 2022/02/10 23:21:17 by achahdan         ###   ########.fr       */
+/*   Updated: 2022/02/11 23:28:02 by achahdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "../includes/push_swap.h"
 

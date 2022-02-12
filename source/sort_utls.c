@@ -6,25 +6,29 @@
 /*   By: achahdan <achahdan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 23:22:35 by achahdan          #+#    #+#             */
-/*   Updated: 2022/02/10 23:22:37 by achahdan         ###   ########.fr       */
+/*   Updated: 2022/02/12 01:37:23 by achahdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "../includes/push_swap.h"
 
-void rev_rotate_to_pos(stack **top , int pos, char ab)
+void	rev_rotate_to_pos(t_stack **top, int pos, char ab)
 {
-	int i = 0;
+	int	i;
+
+	i = 0;
 	while (i < pos)
 	{
 		reverse_rotate(top, ab);
 		i++;
 	}
 }
-void rotate_to_pos(stack **top,int pos, char ab)
+
+void	rotate_to_pos(t_stack **top, int pos, char ab)
 {
-	int i = 0;
+	int	i;
+
+	i = 0;
 	while (i < pos)
 	{
 		rotate(top, ab);
@@ -32,50 +36,51 @@ void rotate_to_pos(stack **top,int pos, char ab)
 	}
 }
 
-int stack_len(stack *top)
+int	t_stack_len(t_stack *top)
 {
-	stack	*temp;
-	int count;
+	t_stack	*temp;
+	int		count;
 
 	count = 0;
 	temp = top;
-
 	while (temp != NULL)
 	{
-    	count++;
+		count++;
 		temp = temp->next;
 	}
-	return count;
+	return (count);
 }
 
-int get_nb_pos(int nb, stack *top)
+int	get_nb_pos(int nb, t_stack *top)
 {
-	int pos = 0;
-	stack *temp;
+	int		pos;
+	t_stack	*temp;
+
+	pos = 0;
 	temp = top;
 	while (temp->data != nb)
 	{
 		temp = temp->next;
 		pos++;
 	}
-	return pos;
+	return (pos);
 }
 
-int	find_nb_in_range(int index, stack *top)
+int	find_nb_in_range(int index, t_stack *top)
 {
-	stack *temp;
-	int ret;
+	t_stack	*temp;
+	int		ret;
 
 	ret = -1;
 	temp = top;
 	while (temp)
 	{
-		if(temp->index <= index)
+		if (temp->index <= index)
 		{
 			ret = temp->data;
-			return ret;
+			return (ret);
 		}
 		temp = temp->next;
 	}
-	return ret;
+	return (ret);
 }
