@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include"../includes/push_swap.h"
-// TODO : FIX THE SECCOND NUM INSERTION 
+
 void	sort_5_elements(t_stack **top)
 {
 	t_stack	*b;
