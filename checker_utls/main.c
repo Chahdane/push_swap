@@ -6,7 +6,7 @@
 /*   By: achahdan <achahdan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 23:21:35 by achahdan          #+#    #+#             */
-/*   Updated: 2022/02/12 01:38:33 by achahdan         ###   ########.fr       */
+/*   Updated: 2022/02/14 19:53:19 by achahdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,12 +90,12 @@ int	main(int ac, char **av)
 	b = NULL;
 	a = NULL;
 	i = 0;
-	if (!is_args_valid(ac, av))
+	if (!is_args_valid(ac, av) || !fill_t_stack(ac, av, &a))
 	{
 		write(2, "Error\n", 6);
+		free_t_stack(a);
 		return (0);
 	}
-	fill_t_stack(ac, av, &a);
 	buffer = get_next_line(0);
 	if (!buffer)
 		return (0);

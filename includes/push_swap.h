@@ -6,7 +6,7 @@
 /*   By: achahdan <achahdan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 01:20:07 by achahdan          #+#    #+#             */
-/*   Updated: 2022/02/14 17:47:56 by achahdan         ###   ########.fr       */
+/*   Updated: 2022/02/14 19:57:31 by achahdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define PUSH_SWAP_H
 
 # include <stdlib.h>
-# include <string.h>
 # include <unistd.h>
 # include <stdarg.h>
 
@@ -72,5 +71,6 @@ void	push_to_last_pos(t_stack **top, t_stack **b);
 int		get_biggest_num(t_stack *top);
 int		get_lowest_num2(t_stack *top, int min);
 int		get_lowest_num(t_stack *top);
+int		ft_strlen(char *str);
 
 #endif

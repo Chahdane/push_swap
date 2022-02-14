@@ -6,7 +6,7 @@
 /*   By: achahdan <achahdan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 23:22:17 by achahdan          #+#    #+#             */
-/*   Updated: 2022/02/14 17:47:40 by achahdan         ###   ########.fr       */
+/*   Updated: 2022/02/14 19:57:08 by achahdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	is_args_valid(int ac, char **av)
 	while (ac-- > 1)
 	{
 		i = 0;
-		len = strlen(av[ac]);
+		len = ft_strlen(av[ac]);
 		if (len > 11)
 			return (0);
 		if (ft_atol(av[ac]) < -2147483648 || ft_atol(av[ac]) > 2147483647)

@@ -6,7 +6,7 @@
 /*   By: achahdan <achahdan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 23:21:45 by achahdan          #+#    #+#             */
-/*   Updated: 2022/02/10 23:21:48 by achahdan         ###   ########.fr       */
+/*   Updated: 2022/02/14 19:32:17 by achahdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,10 @@ long	ft_atol(char *str)
 	i = 0;
 	res = 0;
 	sign = 1;
-	if (str[i] == '-')
+	while (str[i] == '-' || str[i] == '+')
 	{
-		sign = -1;
+		if (str[i] == '-')
+			sign *= -1;
 		i++;
 	}
 	while (str[i] && str[i] >= '0' && str[i] <= '9')
