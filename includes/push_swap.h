@@ -6,7 +6,7 @@
 /*   By: achahdan <achahdan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 01:20:07 by achahdan          #+#    #+#             */
-/*   Updated: 2022/02/12 01:37:23 by achahdan         ###   ########.fr       */
+/*   Updated: 2022/02/14 17:47:56 by achahdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int		r_rr(int index, int chunk_len, t_stack *top);
 // push swap
 void	operations(int ac, t_stack **top, t_stack **b);
 void	fill_index(t_stack **top, int *arr, int ac);
-void	fill_t_stack(int ac, char **av, t_stack **top);
+int		fill_t_stack(int ac, char **av, t_stack **top);
 int		is_args_valid(int ac, char **av);
 void	fill_array(int ac, t_stack *top, int *arr);
 int		ft_itoa(int n);
@@ -60,7 +60,7 @@ void	reverse_rotate(t_stack **top, char ab);
 void	push_element(t_stack **from, t_stack **to, char ab);
 void	sort_2_elements(t_stack **top, char ab);
 void	sort_3_elements(t_stack **top);
-void	sort_5_elements(t_stack **top);
+void	sort_5_elements(t_stack **top, t_stack **b, int ac);
 void	sort(t_stack **top, t_stack **b, int len, int div);
 void	sort2(t_stack **top, t_stack **b, int ac);
 void	push_5_to_a(t_stack **a, t_stack **b);
@@ -71,5 +71,6 @@ void	push_to_pos4(t_stack **top, t_stack **b);
 void	push_to_last_pos(t_stack **top, t_stack **b);
 int		get_biggest_num(t_stack *top);
 int		get_lowest_num2(t_stack *top, int min);
+int		get_lowest_num(t_stack *top);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: achahdan <achahdan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 23:22:41 by achahdan          #+#    #+#             */
-/*   Updated: 2022/02/12 01:37:23 by achahdan         ###   ########.fr       */
+/*   Updated: 2022/02/14 17:53:26 by achahdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,17 +50,11 @@ void	sort(t_stack **top, t_stack **b, int len, int div)
 	{
 		nb = find_nb_in_range(index, *top);
 		if (get_nb_pos(nb, *top) <= t_stack_len(*top) / 2)
-		{
 			rotate_to_pos(top, get_distance(nb, *top), 'a');
-			push_element(top, b, 'b');
-			i++;
-		}
 		else
-		{
 			rev_rotate_to_pos(top, get_distance(nb, *top), 'a');
-			push_element(top, b, 'b');
-			i++;
-		}
+		push_element(top, b, 'b');
+		i++;
 		if (i == len / div)
 		{
 			i = 0;
@@ -90,14 +84,9 @@ void	sort2(t_stack **top, t_stack **b, int ac)
 		nb = get_biggest_num(*b);
 		pos = get_nb_pos(nb, *b);
 		if (pos <= t_stack_len(*b) / 2)
-		{
 			rotate_to_pos(b, get_distance(nb, *b), 'b');
-			push_element(b, top, 'a');
-		}
 		else
-		{
 			rev_rotate_to_pos(b, get_distance(nb, *b), 'b');
-			push_element(b, top, 'a');
-		}
+		push_element(b, top, 'a');
 	}
 }
