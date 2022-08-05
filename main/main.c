@@ -6,7 +6,7 @@
 /*   By: achahdan <achahdan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 23:22:09 by achahdan          #+#    #+#             */
-/*   Updated: 2022/02/14 17:45:02 by achahdan         ###   ########.fr       */
+/*   Updated: 2022/02/19 17:59:19 by achahdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	print_t_stack_data(t_stack *top)
 	temp = top;
 	while (temp)
 	{
-		ft_printf("%d ", temp->data);
+		ft_printf("%d ", temp->index);
 		temp = temp->next;
 	}
 }
@@ -38,6 +38,8 @@ int	main(int ac, char **av)
 		free_t_stack(top);
 		return (0);
 	}
+	if (is_sorted(top))
+		return (0);
 	arr = malloc(sizeof(int) * (ac - 1));
 	fill_array(ac, top, arr);
 	fill_index(&top, arr, ac);

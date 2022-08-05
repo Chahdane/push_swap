@@ -6,7 +6,7 @@
 /*   By: achahdan <achahdan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 23:22:17 by achahdan          #+#    #+#             */
-/*   Updated: 2022/02/14 19:57:08 by achahdan         ###   ########.fr       */
+/*   Updated: 2022/02/19 18:56:47 by achahdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	is_args_valid(int ac, char **av)
 	while (ac-- > 1)
 	{
 		i = 0;
-		len = ft_strlen(av[ac]);
+		len = strlen(av[ac]);
 		if (len > 11)
 			return (0);
 		if (ft_atol(av[ac]) < -2147483648 || ft_atol(av[ac]) > 2147483647)
@@ -90,12 +90,18 @@ void	fill_index(t_stack **top, int *arr, int ac)
 
 void	operations(int ac, t_stack **top, t_stack **b)
 {
-	if (ac == 2)
+	if (ac == 1)
+		return ;
+	else if (ac == 2)
 		sort_2_elements(top, 'a');
 	else if (ac == 3)
 		sort_3_elements(top);
 	else if (ac == 5 || ac == 4)
 		sort_5_elements(top, b, ac);
-	else if (ac > 5)
-		sort2(top, b, ac);
+	else if (ac == 100)
+		sortt(top, b);
+	else if (ac == 500)
+		sort_500(top, b);
+	else
+		sort_all(top, b, ac);
 }

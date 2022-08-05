@@ -6,7 +6,7 @@
 /*   By: achahdan <achahdan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 23:22:24 by achahdan          #+#    #+#             */
-/*   Updated: 2022/02/14 15:55:10 by achahdan         ###   ########.fr       */
+/*   Updated: 2022/02/19 15:37:51 by achahdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,33 @@ void	sort_3_elements(t_stack **top)
 	}
 	else if (a == b && b > c)
 		reverse_rotate(top, 'a');
+}
+
+void	sort_3_in_a(t_stack **top)
+{
+	if (is_sorted(*top))
+		return ;
+	if ((*top)->data > (*top)->next->data
+		&& (*top)->data < (*top)->next->next->data)
+	{
+		swap((*top), 'a');
+		sort_3_in_a(top);
+	}
+	else if ((*top)->data > (*top)->next->data
+		&& (*top)->data > (*top)->next->next->data)
+	{
+		swap((*top), 'a');
+		sort_3_in_a(top);
+	}
+	else if ((*top)->data < (*top)->next->data
+		&& (*top)->next->data > (*top)->next->next->data)
+	{
+		rotate(top, 'a');
+		swap((*top), 'a');
+		reverse_rotate(top, 'a');
+		if ((*top)->data > (*top)->next->data)
+			swap((*top), 'a');
+	}
+	else
+		rotate(top, 'a');
 }

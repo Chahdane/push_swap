@@ -6,7 +6,7 @@
 /*   By: achahdan <achahdan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 23:22:46 by achahdan          #+#    #+#             */
-/*   Updated: 2022/02/12 01:42:31 by achahdan         ###   ########.fr       */
+/*   Updated: 2022/02/19 15:39:59 by achahdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	swap(t_stack *top, char ab)
 
 void	ss(t_stack *a, t_stack *b)
 {
-	ft_putstr_fd("ss", '0');
+	write(1, "ss\n", 3);
 	swap(a, '0');
 	swap(b, '0');
 }

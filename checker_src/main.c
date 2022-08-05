@@ -6,7 +6,7 @@
 /*   By: achahdan <achahdan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 23:21:35 by achahdan          #+#    #+#             */
-/*   Updated: 2022/02/14 19:53:19 by achahdan         ###   ########.fr       */
+/*   Updated: 2022/02/19 19:42:48 by achahdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	check_t_stack(t_stack *top, int len)
 
 	count = 1;
 	temp = top;
-	while (temp->next)
+	while (temp && temp->next)
 	{
 		if (temp->data > temp->next->data)
 			return (1);
@@ -57,22 +57,19 @@ void	op(char *buffer, t_stack **a, t_stack **b)
 {
 	while (buffer)
 	{
-		if (compare(buffer, "pb\n") && t_stack_lenn(*a) > 0)
-			push_element(a, b, '0');
-		else if (compare(buffer, "pa\n") && t_stack_lenn(*b) > 0)
-			push_element(b, a, '0');
-		else if (compare(buffer, "sa\n") && t_stack_lenn(*a) > 1)
-			swap(*a, '0');
-		else if (compare(buffer, "sb\n") && t_stack_lenn(*b) > 1)
-			swap(*b, '0');
-		else if (compare(buffer, "ra\n") && t_stack_lenn(*a) > 1)
-			rotate(a, '0');
-		else if (compare(buffer, "rb\n") && t_stack_lenn(*b) > 1)
-			rotate(b, '0');
-		else if (compare(buffer, "rra") && t_stack_lenn(*a) > 1)
-			reverse_rotate(a, '0');
-		else if (compare(buffer, "rrb") && t_stack_lenn(*b) > 1)
-			reverse_rotate(b, '0');
+		if (compare(buffer, "pb\n") || compare(buffer, "pa\n")
+			|| compare(buffer, "sa\n") || compare(buffer, "ss\n")
+			|| compare(buffer, "sb\n"))
+			op2(buffer, a, b);
+		else if (compare(buffer, "ra\n") || compare(buffer, "rb\n")
+			|| compare(buffer, "rra\n") || compare(buffer, "rrbs\n"))
+			op3(buffer, a, b);
+		else
+		{
+			free(buffer);
+			write(2, "Error\n", 6);
+			exit(1);
+		}
 		free(buffer);
 		buffer = get_next_line(0);
 		if (!buffer)
@@ -87,24 +84,22 @@ int	main(int ac, char **av)
 	t_stack	*a;
 	t_stack	*b;
 
-	b = NULL;
-	a = NULL;
 	i = 0;
-	if (!is_args_valid(ac, av) || !fill_t_stack(ac, av, &a))
-	{
-		write(2, "Error\n", 6);
-		free_t_stack(a);
+	if (ac < 2)
 		return (0);
-	}
+	if (!is_args_valid(ac, av) || !fill_t_stack(ac, av, &a))
+		err();
 	buffer = get_next_line(0);
 	if (!buffer)
-		return (0);
+		err2(a);
 	op(buffer, &a, &b);
 	if (check_t_stack(a, ac - 1) == 0)
-		ft_printf("\n\nOK\n\n");
+		ft_printf("OK\n");
 	else
-		ft_printf("\n\nKO\n\n");
-	free_t_stack(a);
-	free_t_stack(b);
+		ft_printf("KO\n");
+	if (t_stack_len(a) > 0)
+		free_t_stack(a);
+	if (t_stack_len(b))
+		free_t_stack(b);
 	return (0);
 }

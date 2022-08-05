@@ -6,11 +6,30 @@
 /*   By: achahdan <achahdan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 17:25:23 by achahdan          #+#    #+#             */
-/*   Updated: 2022/02/14 17:48:42 by achahdan         ###   ########.fr       */
+/*   Updated: 2022/02/19 15:39:26 by achahdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"../includes/push_swap.h"
+
+int	get_lowest_num3(t_stack *top)
+{
+	int		res;
+	t_stack	*temp;
+	int		i;
+
+	i = 0;
+	res = top->data;
+	temp = top;
+	while (temp != NULL && i < 4)
+	{
+		if (res > temp->data)
+			res = temp->data;
+		temp = temp->next;
+		i++;
+	}
+	return (res);
+}
 
 void	sort_5_elements(t_stack **top, t_stack **b, int ac)
 {
@@ -18,9 +37,9 @@ void	sort_5_elements(t_stack **top, t_stack **b, int ac)
 	int		nb;
 
 	i = 0;
-	while (i < ac -3)
+	while (i < ac - 3)
 	{
-		nb = get_lowest_num(*top);
+		nb = get_lowest_num3(*top);
 		if (get_nb_pos(nb, *top) <= t_stack_len(*top) / 2)
 			rotate_to_pos(top, get_distance(nb, *top), 'a');
 		else
@@ -32,6 +51,10 @@ void	sort_5_elements(t_stack **top, t_stack **b, int ac)
 		if ((*b)->data < (*b)->next->data)
 			swap(*b, 'b');
 	sort_3_elements(top);
-	while (t_stack_len(*b))
+	i = 0;
+	while (i < ac - 3)
+	{
 		push_element(b, top, 'a');
+		i++;
+	}
 }

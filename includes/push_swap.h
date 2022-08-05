@@ -6,7 +6,7 @@
 /*   By: achahdan <achahdan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 01:20:07 by achahdan          #+#    #+#             */
-/*   Updated: 2022/02/14 19:57:31 by achahdan         ###   ########.fr       */
+/*   Updated: 2022/02/19 19:13:53 by achahdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include <stdlib.h>
+# include <string.h>
 # include <unistd.h>
 # include <stdarg.h>
 
@@ -71,6 +72,21 @@ void	push_to_last_pos(t_stack **top, t_stack **b);
 int		get_biggest_num(t_stack *top);
 int		get_lowest_num2(t_stack *top, int min);
 int		get_lowest_num(t_stack *top);
-int		ft_strlen(char *str);
+void	sort_3_in_a(t_stack **top);
+void	sortt(t_stack **top, t_stack **b);
+void	ss(t_stack *a, t_stack *b);
+void	sort_4_in_a(t_stack **top, t_stack **b);
+int		get_lowest_num4(t_stack *top, int a);
+int		get_nb_with_index(int index, t_stack *top);
+void	sort_500(t_stack **top, t_stack **b);
+void	sort_3_in_b(t_stack **top);
+void	push_2_sort(t_stack **top, t_stack **b);
+void	sort_all(t_stack **top, t_stack **b, int ac);
+void	op2(char *buffer, t_stack **a, t_stack **b);
+void	op3(char *buffer, t_stack **a, t_stack **b);
+int		compare(char *s1, char *s2);
+int		t_stack_lenn(t_stack *top);
+void	err(void);
+void	err2(t_stack *a);
 
 #endif

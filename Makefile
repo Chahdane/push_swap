@@ -1,18 +1,18 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address
-CKECKER_OBJ= checker_utls/*.c lib/*.c source/*.c
+CFLAGS = -Wall -Wextra -Werror 
+CKECKER_OBJ= checker_src/*.c lib/*.c source/*.c
 OBJ= source/*.c lib/*.c main/main.c
-NAME = push_swap
 
-all : $(NAME)
+all : push_swap
 
-$(NAME) : $(OBJ)
+push_swap :
 			$(CC) $(CFLAGS) $(OBJ) -o push_swap
 bonus : 
 			$(CC) $(CFLAGS) $(CKECKER_OBJ) -o checker
 clean :
-	rm -fr push_swap
-	rm -fr hecker
+	rm -rf push_swap
+	rm -rf checker
+
 fclean : clean
 
 re : clean all
